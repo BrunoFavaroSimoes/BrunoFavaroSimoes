@@ -1,8 +1,7 @@
 # 🌟 Olá, me chamo Bruno! 
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white&style=flat-square)](https://www.linkedin.com/in/seu-perfil) 
-[![GitHub Followers](https://img.shields.io/github/followers/seu-usuario?style=flat-square)](https://github.com/seu-usuario?tab=followers)
-[![Portfolio](https://img.shields.io/badge/Portfolio-%23FF5722?style=flat-square&logo=web&logoColor=white)](https://seu-portfolio.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white&style=flat-square)]([https://www.linkedin.com/in/seu-perfil](https://www.linkedin.com/in/brunofavarosimoes/)) 
+--[![Portfolio](https://img.shields.io/badge/Portfolio-%23FF5722?style=flat-square&logo=web&logoColor=white)](https://seu-portfolio.com)
 
 ---
 
