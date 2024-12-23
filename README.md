@@ -17,4 +17,4 @@
 ### Entre em contato 📫
 
 - 📧 **Email:** [bruno.favaro.simoes@gmail.com](mailto:bruno.favaro.simoes@gmail.com)
-- 💬 **LinkedIn:** [Seu perfil no LinkedIn]([https://www.linkedin.com/in/seu-perfil](https://www.linkedin.com/in/brunofavarosimoes/))
+- 💬 **LinkedIn:** [[in/brunofavarosimoes]([https://www.linkedin.com/in/seu-perfil](https://www.linkedin.com/in/brunofavarosimoes/)](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white&style=flat-square)]([https://www.linkedin.com/in/seu-perfil](https://www.linkedin.com/in/brunofavarosimoes/)))
