@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Peças mAInframe</title>
+<!-- Fonte das peças de marca. Renderize com: node render.js (gera os PNG desta pasta). -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --housing: #1c1b17; --housing-2: #26251f; --screen: #0b0800;
+    --phosphor: #ffb000; --phosphor-dim: #a87400;
+    --paper: #fbfcf8; --greenbar: #dfeadb; --ink: #1c201b; --ink-soft: #5d665b;
+    --on-dark: #ece8dc; --on-dark-soft: #a9a493;
+    --sans: "IBM Plex Sans", sans-serif; --mono: "IBM Plex Mono", monospace; --crt: "VT323", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #555; padding: 40px; display: grid; gap: 40px; justify-content: start; font-family: var(--sans); }
+  .board { position: relative; overflow: hidden; }
+  .logo { font: 600 30px/1 var(--mono); letter-spacing: -0.03em; color: var(--on-dark); }
+  .logo i { font-style: normal; background: var(--phosphor); color: var(--screen); padding: 0 4px; margin: 0 1px; }
+  .logo--ink { color: var(--ink); }
+  .meta { font: 400 20px/1.4 var(--mono); color: var(--on-dark-soft); }
+  .meta--ink { color: var(--ink-soft); }
+
+  /* papel de formulário contínuo; --l é a altura de uma linha impressa */
+  .paper {
+    --l: 40px; --hole: 56px;
+    background:
+      radial-gradient(circle at center, var(--housing) 8px, transparent 8.5px) left 0 top 20px / var(--hole) 80px repeat-y,
+      radial-gradient(circle at center, var(--housing) 8px, transparent 8.5px) right 0 top 20px / var(--hole) 80px repeat-y,
+      linear-gradient(to bottom, #b8bdb0 50%, transparent 50%) var(--hole) 0 / 1.5px 10px repeat-y,
+      linear-gradient(to bottom, #b8bdb0 50%, transparent 50%) calc(100% - var(--hole)) 0 / 1.5px 10px repeat-y,
+      repeating-linear-gradient(to bottom, var(--greenbar) 0 calc(var(--l) * 3), var(--paper) calc(var(--l) * 3) calc(var(--l) * 6)) var(--hole) 0 / calc(100% - var(--hole) * 2) 100% no-repeat,
+      var(--paper);
+    padding: 0 calc(var(--hole) + 32px);
+    font: 500 24px/var(--l) var(--mono);
+    color: #2a3328;
+  }
+  .row { display: grid; grid-template-columns: 11ch 1fr; gap: 2ch; }
+  .row span:first-child { color: #6a7466; font-weight: 400; }
+
+  /* ---------- OG 1200x630 ---------- */
+  #og { width: 1200px; height: 630px; background: var(--housing); display: grid; grid-template-columns: 690px 1fr; }
+  #og .left { padding: 64px 0 56px 72px; display: flex; flex-direction: column; justify-content: space-between; }
+  #og h1 { font: 600 64px/1.06 var(--sans); letter-spacing: -0.03em; color: var(--on-dark); max-width: 9.5em; }
+  #og .paper { --l: 30px; --hole: 36px; font-size: 17px; padding: 0 calc(var(--hole) + 22px); margin-top: -12px; height: 660px; box-shadow: -20px 0 40px rgba(0,0,0,.35); }
+  #og .paper .row { grid-template-columns: 10ch 1fr; }
+  #og .bottom { display: flex; gap: 28px; align-items: baseline; }
+
+  /* ---------- Instagram 1080x1350 ---------- */
+  .ig { width: 1080px; height: 1350px; }
+
+  /* 1: capa de carrossel com o monitor */
+  #ig-dica { background: var(--housing); padding: 80px; display: flex; flex-direction: column; }
+  #ig-dica .screen {
+    position: relative; margin-top: 64px; height: 560px; border-radius: 28px / 34px;
+    background: radial-gradient(ellipse at center, #1a1100 0%, var(--screen) 75%);
+    box-shadow: inset 0 0 0 10px #2b2a24, inset 0 0 90px rgba(0,0,0,.9);
+    padding: 64px 72px; overflow: hidden;
+    font: 400 54px/1.2 var(--crt); color: var(--phosphor);
+    text-shadow: 0 0 10px rgba(255,176,0,.55), 0 0 26px rgba(255,140,0,.25);
+    white-space: pre;
+  }
+  #ig-dica .screen::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, rgba(0,0,0,.3) 0 2px, transparent 2px 5px); }
+  #ig-dica .screen .dim { color: var(--phosphor-dim); text-shadow: none; }
+  #ig-dica .cur { display: inline-block; width: .55em; height: .95em; background: var(--phosphor); vertical-align: -.1em; }
+  #ig-dica h2 { margin-top: auto; font: 600 92px/1.02 var(--sans); letter-spacing: -0.035em; color: var(--on-dark); }
+  #ig-dica .foot { margin-top: 56px; display: flex; justify-content: space-between; }
+
+  /* 2: case impresso */
+  #ig-case { background: var(--housing); padding: 72px 0 0; display: flex; flex-direction: column; }
+  #ig-case .top { padding: 0 80px 56px; display: flex; justify-content: space-between; align-items: baseline; }
+  #ig-case .paper { flex: 1; margin: 0 48px; }
+  #ig-case .head { height: calc(var(--l) * 3); display: flex; justify-content: space-between; align-items: center; font-weight: 600; }
+  #ig-case h2 { font: 600 76px/80px var(--sans); letter-spacing: -0.03em; color: var(--ink); padding: 40px 0; }
+  #ig-case .big { display: block; }
+
+  /* 3: chamada calculadora */
+  #ig-calc { background: var(--paper); padding: 80px; display: flex; flex-direction: column; justify-content: space-between; color: var(--ink); }
+  #ig-calc h2 { font: 600 100px/1.02 var(--sans); letter-spacing: -0.035em; max-width: 9.5em; }
+  #ig-calc .readout {
+ background: var(--screen); border-radius: 14px; padding: 44px 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px 40px;
+    box-shadow: inset 0 0 60px rgba(0,0,0,.85);
+  }
+  #ig-calc .readout span { display: block; font: 400 24px/1 var(--mono); color: var(--phosphor-dim); margin-bottom: 14px; }
+  #ig-calc .readout b { font: 400 76px/1 var(--crt); color: var(--phosphor); text-shadow: 0 0 12px rgba(255,176,0,.5); }
+  #ig-calc .readout .wide { grid-column: 1 / -1; }
+  #ig-calc .readout .wide b { font-size: 112px; }
+  #ig-calc .foot { display: flex; justify-content: space-between; align-items: baseline; }
+  #ig-calc .cta { font: 600 34px/1.2 var(--sans); }
+</style>
+</head>
+<body>
+
+<!-- Imagem de compartilhamento do site (WhatsApp, LinkedIn etc.) -->
+<div class="board" id="og">
+  <div class="left">
+    <div class="logo">m<i>AI</i>nframe</div>
+    <h1>IA trabalhando dentro da sua empresa.</h1>
+    <div class="bottom"><span class="meta">agentes, automação e dados</span><span class="meta">@mainframe.ia</span></div>
+  </div>
+  <div class="paper">
+    <div style="height:90px;display:flex;align-items:center;justify-content:space-between;font-weight:600"><span>MAINFRAME/IA  PROJETOS</span></div>
+    <div style="font-weight:600">JOB 002  Conciliação financeira</div>
+    <div class="row"><span>problema</span><span>dias conferindo notas</span></div>
+    <div class="row"><span>solução</span><span>robô que cruza tudo</span></div>
+    <div class="row"><span>resultado</span><span style="font-weight:600;color:#1c201b">40 h/mês de volta</span></div>
+    <div class="row"><span>status</span><span>em produção</span></div>
+    <div style="height:30px"></div>
+    <div style="font-weight:600">JOB 003  Painel comercial</div>
+    <div class="row"><span>resultado</span><span style="font-weight:600;color:#1c201b">5 fontes em 1 painel</span></div>
+    <div class="row"><span>status</span><span>concluído</span></div>
+    <div style="height:30px"></div>
+    <div style="font-weight:600">JOB 004  Busca em contratos</div>
+    <div class="row"><span>status</span><span>piloto</span></div>
+  </div>
+</div>
+
+<!-- Post: capa de carrossel educativo -->
+<div class="board ig" id="ig-dica">
+  <div class="logo">m<i>AI</i>nframe</div>
+  <div class="screen"><span class="dim">MAINFRAME/IA  TERMINAL 01</span>
+
+&gt; o que é RAG?
+<span class="dim">  buscando nos seus documentos...</span>
+  é a IA que consulta a sua
+  base antes de responder.
+&gt; <span class="cur"></span></div>
+  <h2>O que é RAG, explicado sem jargão.</h2>
+  <div class="foot"><span class="meta">arraste para o lado</span><span class="meta">1 / 6</span></div>
+</div>
+
+<!-- Post: case em formulário contínuo -->
+<div class="board ig" id="ig-case">
+  <div class="top"><div class="logo">m<i>AI</i>nframe</div><span class="meta">case de cliente</span></div>
+  <div class="paper">
+    <div class="head"><span>MAINFRAME/IA  RELATÓRIO</span><span>JOB 002</span></div>
+    <h2>40 horas por mês devolvidas ao financeiro.</h2>
+    <div class="row"><span>empresa</span><span>distribuidora, 80 pessoas</span></div>
+    <div class="row"><span>problema</span><span>conferir notas e extratos</span></div>
+    <div class="row"><span></span><span>tomava dias todo mês</span></div>
+    <div class="row"><span>solução</span><span>robô que lê, cruza e lista</span></div>
+    <div class="row"><span></span><span>só as divergências</span></div>
+    <div class="row"><span>prazo</span><span>piloto em 3 semanas</span></div>
+    <div class="row"><span>tecnologia</span><span>Python, OCR, SQL</span></div>
+    <div style="height:80px"></div>
+    <div class="row"><span>contato</span><span>link na bio</span></div>
+  </div>
+</div>
+
+<!-- Post: chamada para a calculadora / diagnóstico -->
+<div class="board ig" id="ig-calc">
+  <div class="logo logo--ink">m<i>AI</i>nframe</div>
+  <h2>Quanto custa o trabalho repetitivo na sua empresa?</h2>
+  <div class="readout">
+    <div><span>pessoas</span><b>4</b></div>
+    <div><span>horas por semana, cada</span><b>8 h</b></div>
+    <div class="wide"><span>custo por ano, a R$ 45/h</span><b>R$ 74.880</b></div>
+  </div>
+  <div class="foot"><span class="cta">Faça a conta com os seus números.<br />Link na bio.</span><span class="meta meta--ink">@mainframe.ia</span></div>
+</div>
+
+</body>
+</html>

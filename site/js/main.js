@@ -41,31 +41,76 @@
   menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
 
-  /* ---------- Tela do CRT (o único movimento automático da página) ---------- */
+  /* ---------- Tela do CRT: demonstração por área ---------- */
   var crt = document.getElementById("crt");
-  var lines = [
-    { t: '<span class="inv">MAINFRAME/IA</span>  <span class="dim">TERMINAL 01</span>' },
-    { t: "" },
-    { t: "> analisar contas a pagar", type: true },
-    { t: '<span class="dim">  lendo 1.248 notas fiscais...</span> ok' },
-    { t: '<span class="dim">  cruzando com o extrato...</span>    ok' },
-    { t: "  divergências encontradas: 17" },
-    { t: "" },
-    { t: "> quanto tempo isso levava?", type: true },
-    { t: "  cerca de 40 horas por mês, à mão." },
-    { t: "" },
-    { t: "> e agora?", type: true },
-    { t: "  4 minutos. relatório enviado" },
-    { t: "  para o financeiro." },
-  ];
+  var crtCaption = document.getElementById("crt-caption");
+  var HEAD = { t: '<span class="inv">MAINFRAME/IA</span>  <span class="dim">TERMINAL 01</span>' };
+  var scenes = {
+    financeiro: {
+      caption: "Financeiro: a IA confere 1.248 notas contra o extrato e acha 17 divergências em 4 minutos.",
+      lines: [
+        HEAD, { t: "" },
+        { t: "> conferir contas a pagar", type: true },
+        { t: '<span class="dim">  lendo 1.248 notas fiscais...</span> ok' },
+        { t: '<span class="dim">  cruzando com o extrato...</span>    ok' },
+        { t: "  divergências encontradas: 17" },
+        { t: "" },
+        { t: "> quanto tempo isso levava?", type: true },
+        { t: "  cerca de 40 horas por mês, à mão." },
+        { t: "" },
+        { t: "> e agora?", type: true },
+        { t: "  4 minutos. relatório enviado" },
+        { t: "  para o financeiro." },
+      ],
+    },
+    atendimento: {
+      caption: "Atendimento: o agente responde um cliente no WhatsApp às 23h e passa a venda para o time de manhã.",
+      lines: [
+        HEAD, { t: "" },
+        { t: '<span class="dim">  23:14  nova mensagem no whatsapp</span>' },
+        { t: "  cliente: meu pedido 4471 já saiu?" },
+        { t: "" },
+        { t: '<span class="dim">  consultando pedido 4471...</span>     ok' },
+        { t: "  ia: saiu ontem, chega quinta." },
+        { t: "      segue o rastreio. posso ajudar" },
+        { t: "      em mais alguma coisa?" },
+        { t: "" },
+        { t: "  cliente: quero mais 3 unidades" },
+        { t: '<span class="dim">  pedido criado, vendedor avisado</span> ok' },
+        { t: "  tempo de resposta: 6 segundos" },
+      ],
+    },
+    vendas: {
+      caption: "Vendas: o gestor pergunta em português e recebe a resposta com os dados de CRM e ERP juntos.",
+      lines: [
+        HEAD, { t: "" },
+        { t: "> quais clientes pararam de comprar?", type: true },
+        { t: '<span class="dim">  unindo crm + erp + planilhas...</span> ok' },
+        { t: "" },
+        { t: "  23 clientes sem pedido há 60 dias" },
+        { t: "  faturamento em risco: R$ 184 mil/ano" },
+        { t: "" },
+        { t: "> priorize para o time comercial", type: true },
+        { t: '<span class="dim">  ordenando por valor e chance...</span> ok' },
+        { t: "  lista enviada para 4 vendedores" },
+      ],
+    },
+  };
   var cursor = '<span class="crt__cursor"></span>';
+  var timer = null;
   function show(html) { crt.innerHTML = html; crt.scrollTop = crt.scrollHeight; }
-
   function plain(html) { var d = document.createElement("div"); d.innerHTML = html; return d.textContent; }
+  function later(fn, ms) { timer = setTimeout(fn, ms); }
 
-  if (reduceMotion) {
-    show(lines.map(function (l) { return l.t; }).join("\n") + "\n\n> " + cursor);
-  } else {
+  function play(name) {
+    clearTimeout(timer);
+    var scene = scenes[name];
+    crtCaption.textContent = scene.caption;
+    var lines = scene.lines;
+    if (reduceMotion) {
+      show(lines.map(function (l) { return l.t; }).join("\n") + "\n\n> " + cursor);
+      return;
+    }
     var out = "", i = 0;
     var next = function () {
       if (i >= lines.length) { show(out + "\n> " + cursor); return; }
@@ -75,19 +120,29 @@
         var tick = function () {
           c++;
           show(out + "> " + txt.slice(0, c) + cursor);
-          if (c < txt.length) setTimeout(tick, 45 + Math.random() * 55);
-          else { out += "> " + txt + "\n"; setTimeout(next, 450); }
+          if (c < txt.length) later(tick, 40 + Math.random() * 50);
+          else { out += "> " + txt + "\n"; later(next, 420); }
         };
         show(out + "> " + cursor);
-        setTimeout(tick, 500);
+        later(tick, 450);
       } else {
         out += l.t + "\n";
         show(out + cursor);
-        setTimeout(next, l.t ? 300 : 120);
+        later(next, l.t ? 280 : 110);
       }
     };
-    setTimeout(next, 400);
+    show(cursor);
+    later(next, 300);
   }
+
+  var keys = document.querySelectorAll(".crt__key");
+  keys.forEach(function (k) {
+    k.addEventListener("click", function () {
+      keys.forEach(function (o) { o.setAttribute("aria-pressed", String(o === k)); });
+      play(k.getAttribute("data-scene"));
+    });
+  });
+  play("financeiro");
 
   /* ---------- Dores marcadas ---------- */
   var painInputs = document.querySelectorAll(".pain input");
@@ -98,19 +153,55 @@
     return Array.prototype.filter.call(painInputs, function (i) { return i.checked; })
       .map(function (i) { return i.value; });
   }
+  var calcSummary = "";   // preenchido pela calculadora quando o visitante decide levar o número
+
   function updatePains() {
     var sel = selectedPains();
     painsCount.textContent = sel.length
       ? sel.length + (sel.length === 1 ? " ponto marcado." : " pontos marcados.") + " Eles vão junto no seu pedido."
       : "";
-    if (sel.length) {
-      picked.hidden = false;
-      picked.innerHTML = "<b>Você marcou:</b> " + sel.map(esc).join("; ") + ".";
-    } else {
-      picked.hidden = true;
-    }
+    var parts = [];
+    if (sel.length) parts.push("<b>Você marcou:</b> " + sel.map(esc).join("; ") + ".");
+    if (calcSummary) parts.push("<b>Calculadora:</b> " + esc(calcSummary) + ".");
+    picked.hidden = !parts.length;
+    picked.innerHTML = parts.join("<br />");
   }
   painInputs.forEach(function (i) { i.addEventListener("change", updatePains); });
+
+
+  /* ---------- Calculadora ---------- */
+  var brl = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
+  var num = new Intl.NumberFormat("pt-BR");
+  var cP = document.getElementById("calc-pessoas");
+  var cH = document.getElementById("calc-horas");
+  var cC = document.getElementById("calc-custo");
+  var WEEKS_PER_MONTH = 52 / 12;
+
+  function calc() {
+    var p = +cP.value, h = +cH.value, c = +cC.value;
+    var horasMes = Math.round(p * h * WEEKS_PER_MONTH);
+    var ano = p * h * 52 * c;
+    var mes = ano / 12;
+    document.getElementById("out-pessoas").textContent = p;
+    document.getElementById("out-horas").textContent = h + " h";
+    document.getElementById("out-custo").textContent = brl.format(c);
+    document.getElementById("res-horas").textContent = num.format(horasMes);
+    document.getElementById("res-mes").textContent = brl.format(mes);
+    document.getElementById("res-ano").textContent = brl.format(ano);
+    [cP, cH, cC].forEach(function (r) {
+      r.style.setProperty("--fill", ((r.value - r.min) / (r.max - r.min)) * 100 + "%");
+    });
+    return p + " pessoas, " + h + " h/semana cada, " + num.format(horasMes) + " h/mês, cerca de " + brl.format(ano) + " por ano";
+  }
+  [cP, cH, cC].forEach(function (r) { r.addEventListener("input", calc); });
+  calc();
+
+  document.getElementById("calc-use").addEventListener("click", function () {
+    calcSummary = calc();
+    updatePains();
+    document.getElementById("contato").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    setTimeout(function () { document.querySelector('#contact-form [name="nome"]').focus({ preventScroll: true }); }, reduceMotion ? 0 : 600);
+  });
 
   /* ---------- Portfólio impresso ---------- */
   var jobsEl = document.getElementById("jobs");
@@ -211,8 +302,13 @@
       "Contato: " + data.get("contato") + "\n" +
       "Tamanho: " + (data.get("porte") || "não informado") + "\n" +
       (pains.length ? "Pontos marcados no site: " + pains.join("; ") + "\n" : "") +
+      (calcSummary ? "Calculadora: " + calcSummary + "\n" : "") +
       "\n" + data.get("mensagem");
 
+    if (window.MAINFRAME_PREVIEW) {
+      statusEl.textContent = "Prévia: no site publicado, este botão abre o " + (whats ? "WhatsApp" : "e-mail") + " com o pedido pronto.";
+      return;
+    }
     if (whats) {
       window.open("https://wa.me/" + whats + "?text=" + encodeURIComponent(text), "_blank", "noopener");
       statusEl.textContent = "Abrimos o WhatsApp com seu pedido pronto. É só enviar.";

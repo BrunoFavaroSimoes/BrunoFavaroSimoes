@@ -33,3 +33,12 @@ Qualquer hospedagem estática serve. Aponte a pasta `site/` como raiz:
 - **GitHub Pages**: use um workflow do GitHub Actions que publique a pasta `site/`, ou mova o conteúdo para um repositório próprio.
 
 Depois é só apontar o domínio (ex.: `mainframe.ia.br`) e colocar o link na bio do Instagram.
+
+## Peças de marca (`brand/`)
+
+- `filosofia-visual.md`: a linha visual da mAInframe (fósforo âmbar + formulário contínuo).
+- `instagram-dica.png`, `instagram-case.png`, `instagram-calculadora.png`: modelos de post 1080×1350.
+- `../assets/og-image.png`: imagem que aparece quando o link do site é compartilhado.
+
+Para mudar textos das peças, edite `brand/pecas.html` e rode `node brand/render.js` (precisa do Playwright).
+O post de case usa dados de exemplo: troque pelos de um cliente real antes de publicar.
