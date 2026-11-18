@@ -16,10 +16,10 @@ python3 -m http.server 8000
 
 | O quê | Onde |
 |---|---|
-| Instagram, e-mail, WhatsApp, LinkedIn | `js/config.js` → `MAINFRAME_CONFIG` |
-| Projetos do portfólio | `js/config.js` → `MAINFRAME_PROJECTS` |
+| Instagram, e-mail, WhatsApp, LinkedIn (com WhatsApp preenchido, o formulário envia por lá) | `js/config.js` → `MAINFRAME_CONFIG` |
+| Projetos do portfólio (problema, solução, resultado) | `js/config.js` → `MAINFRAME_PROJECTS` |
 | Foto do Bruno | salve `assets/bruno.jpg` (retrato, 4:5) e troque o `src` em `index.html` |
-| Textos (serviços, bio, chamadas) | `index.html` |
+| Textos (dores, bio, dúvidas, chamadas) | `index.html` |
 | Cores e fontes | topo de `css/styles.css` (`:root`) |
 
 Os projetos marcados com `placeholder: true` são de exemplo. Quando todos forem reais,

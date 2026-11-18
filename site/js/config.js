@@ -1,93 +1,87 @@
 /* =========================================================
-   mAInframe — CONFIGURAÇÃO DO SITE
+   mAInframe: CONFIGURAÇÃO DO SITE
    Edite este arquivo para trocar contatos e projetos.
    Não é preciso mexer no HTML.
    ========================================================= */
 
 window.MAINFRAME_CONFIG = {
-  instagram: "mainframe.ia",                       // @ sem o arroba
-  email: "contato@mainframe.ia",                   // TODO: trocar pelo e-mail real
+  instagram: "mainframe.ia",                  // @ sem o arroba
+  email: "contato@mainframe.ia",              // TODO: trocar pelo e-mail real
+  whatsapp: "",                               // TODO: ex. "5511999999999". Preenchido, o formulário envia pelo WhatsApp
   linkedinFundador: "https://www.linkedin.com/in/brunofavarosimoes/",
-  whatsapp: "",                                    // ex.: "5511999999999" (vazio = esconde o botão)
 };
 
 /* ---------------------------------------------------------
-   PORTFÓLIO
+   PORTFÓLIO: cada projeto vira um "job" na impressão.
    category: "agentes" | "automacao" | "dados" | "visao"
-   status:   texto livre (ex.: "Em produção", "Piloto", "Case")
-   link:     URL do projeto/case (ou "" para sem link)
+   status:   "Em produção" | "Piloto" | "Concluído" (texto livre)
+   link:     URL do case ("" = sem link)
    placeholder: true = projeto de exemplo (remova quando trocar)
    --------------------------------------------------------- */
 window.MAINFRAME_PROJECTS = [
   {
-    id: "PRJ-001",
-    title: "Atendente IA para e-commerce",
+    title: "Atendente de IA para e-commerce",
     category: "agentes",
     status: "Em produção",
-    description:
-      "Agente no WhatsApp que responde dúvidas, consulta pedidos e passa para um humano quando precisa.",
+    problem: "O time respondia as mesmas perguntas o dia inteiro no WhatsApp e demorava a atender quem queria comprar.",
+    solution: "Agente que responde dúvidas, consulta pedidos e passa a conversa para uma pessoa quando precisa.",
+    result: "62% menos tempo de resposta",
     stack: ["LLM", "RAG", "WhatsApp API", "Python"],
-    metric: "-62% tempo de resposta",
     link: "",
     placeholder: true,
   },
   {
-    id: "PRJ-002",
-    title: "Robô de conciliação financeira",
+    title: "Conciliação financeira automática",
     category: "automacao",
     status: "Em produção",
-    description:
-      "Automação que lê extratos e notas, cruza lançamentos e aponta divergências para o time financeiro.",
+    problem: "Conferir notas e extratos tomava dias do financeiro todo fim de mês.",
+    solution: "Robô que lê notas e extratos, cruza os lançamentos e lista só as divergências.",
+    result: "40 horas por mês devolvidas ao time",
     stack: ["Python", "OCR", "SQL"],
-    metric: "40h/mês economizadas",
     link: "",
     placeholder: true,
   },
   {
-    id: "PRJ-003",
-    title: "Data lake e painel comercial",
+    title: "Painel comercial unificado",
     category: "dados",
-    status: "Case",
-    description:
-      "Pipeline que unifica CRM, ERP e planilhas num só lugar, com painel de vendas atualizado todo dia.",
+    status: "Concluído",
+    problem: "Vendas, CRM e planilhas contavam histórias diferentes e ninguém confiava nos números.",
+    solution: "Pipeline que junta as fontes num só banco e alimenta um painel atualizado todo dia.",
+    result: "5 fontes de dados em 1 painel",
     stack: ["SQL", "Airflow", "dbt", "Power BI"],
-    metric: "5 fontes → 1 painel",
     link: "",
     placeholder: true,
   },
   {
-    id: "PRJ-004",
-    title: "Busca inteligente em documentos",
+    title: "Busca em contratos e manuais",
     category: "agentes",
     status: "Piloto",
-    description:
-      "Assistente interno que responde perguntas sobre contratos e manuais, sempre citando a fonte.",
-    stack: ["Embeddings", "Vector DB", "LLM"],
-    metric: "Respostas em segundos",
+    problem: "Achar uma cláusula ou procedimento exigia abrir dezenas de PDFs.",
+    solution: "Assistente interno que responde perguntas sobre os documentos e mostra de onde tirou a resposta.",
+    result: "Respostas em segundos, com a fonte",
+    stack: ["Embeddings", "Banco vetorial", "LLM"],
     link: "",
     placeholder: true,
   },
   {
-    id: "PRJ-005",
     title: "Inspeção visual de produtos",
     category: "visao",
     status: "Piloto",
-    description:
-      "Modelo de visão computacional que identifica defeitos na linha de produção a partir de fotos.",
-    stack: ["Visão computacional", "PyTorch", "Edge"],
-    metric: "94% de acerto no piloto",
+    problem: "Defeitos passavam pela linha de produção porque a inspeção era manual e cansativa.",
+    solution: "Modelo de visão computacional que aponta peças com defeito a partir de fotos.",
+    result: "94% de acerto no piloto",
+    stack: ["Visão computacional", "PyTorch"],
     link: "",
     placeholder: true,
   },
   {
-    id: "PRJ-006",
-    title: "Previsão de demanda",
+    title: "Previsão de demanda por loja",
     category: "dados",
-    status: "Case",
-    description:
-      "Modelo que prevê vendas por loja e produto para reduzir ruptura e excesso de estoque.",
-    stack: ["Python", "Machine Learning", "SQL"],
-    metric: "-18% de ruptura",
+    status: "Concluído",
+    problem: "Faltava produto em umas lojas e sobrava em outras.",
+    solution: "Modelo que prevê vendas por loja e produto para orientar as compras.",
+    result: "18% menos ruptura de estoque",
+    stack: ["Python", "Machine learning", "SQL"],
     link: "",
     placeholder: true,
   },

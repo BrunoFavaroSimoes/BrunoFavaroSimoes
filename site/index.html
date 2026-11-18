@@ -3,288 +3,323 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>mAInframe — Inteligência Artificial para empresas</title>
-  <meta name="description" content="mAInframe é uma empresa de inteligência artificial: agentes, automação, dados e visão computacional aplicados ao seu negócio." />
-  <meta name="theme-color" content="#0a0d0b" />
+  <title>mAInframe: inteligência artificial para empresas</title>
+  <meta name="description" content="A mAInframe cria agentes de IA, automações e soluções de dados sob medida para empresas. Agende um diagnóstico gratuito." />
+  <meta name="theme-color" content="#1c1b17" />
 
-  <meta property="og:title" content="mAInframe — IA no núcleo do seu negócio" />
-  <meta property="og:description" content="Agentes de IA, automação e dados para empresas. Conheça nossos projetos." />
+  <meta property="og:title" content="mAInframe: IA trabalhando na sua empresa" />
+  <meta property="og:description" content="Agentes, automações e dados com IA, sob medida. Agende um diagnóstico gratuito." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=VT323&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="crt" aria-hidden="true"></div>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- ============ NAV ============ -->
-  <header class="nav" id="top">
-    <div class="container nav__inner">
-      <a href="#top" class="logo" aria-label="mAInframe — início">
-        <span class="logo__bracket">[</span>m<span class="logo__ai">AI</span>nframe<span class="logo__bracket">]</span>
-      </a>
+  <header class="nav" id="topo">
+    <div class="wrap nav__inner">
+      <a href="#topo" class="logo" aria-label="mAInframe, início">m<span class="logo__ai">AI</span>nframe</a>
 
-      <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-        <span></span><span></span>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="menu">
+        <span class="visually-hidden">Menu</span><span class="nav__bars" aria-hidden="true"></span>
       </button>
 
-      <nav class="nav__menu" id="menu">
-        <a href="#servicos">Serviços</a>
+      <nav class="nav__menu" id="menu" aria-label="Principal">
+        <a href="#como-ajudo">Como ajudo</a>
         <a href="#projetos">Projetos</a>
-        <a href="#fundador">Fundador</a>
-        <a href="#instagram">Instagram</a>
-        <a href="#contato" class="btn btn--small">Falar com a gente</a>
+        <a href="#bruno">Quem faz</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato" class="btn btn--amber btn--sm">Agendar diagnóstico</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="conteudo">
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="grid-bg" aria-hidden="true"></div>
-      <div class="container hero__inner">
+      <div class="wrap hero__inner">
         <div class="hero__copy">
-          <p class="eyebrow"><span class="dot"></span> sistema online · aceitando novos projetos</p>
-          <h1 class="hero__title">
-            IA que roda no <span class="hl">núcleo</span> do seu negócio.
-          </h1>
+          <h1>Sua empresa já tem os dados. A mAInframe coloca a IA para trabalhar com eles.</h1>
           <p class="hero__lead">
-            A mAInframe cria agentes, automações e soluções de dados com inteligência artificial
-            para empresas que querem resultado de verdade, não só uma demo bonita.
+            Criamos agentes, automações e análises sob medida para tirar o trabalho repetitivo
+            do seu time e responder seus clientes mais rápido. Você conversa direto com quem constrói.
           </p>
           <div class="hero__ctas">
-            <a href="#contato" class="btn">Iniciar um projeto <span aria-hidden="true">→</span></a>
-            <a href="#projetos" class="btn btn--ghost">Ver portfólio</a>
+            <a href="#contato" class="btn btn--amber">Agendar diagnóstico gratuito</a>
+            <a href="#projetos" class="btn btn--line">Ver projetos</a>
           </div>
-          <ul class="hero__stats">
-            <li><strong data-count="6">0</strong><span>projetos no portfólio</span></li>
-            <li><strong>24/7</strong><span>agentes que não dormem</span></li>
-            <li><strong>100%</strong><span>feito sob medida</span></li>
-          </ul>
+          <a class="hero__face" href="#bruno">
+            <img src="assets/bruno-placeholder.svg" alt="" width="48" height="48" />
+            <span><b>Bruno Favaro Simões</b><br />fundador, atende cada cliente pessoalmente</span>
+          </a>
         </div>
 
-        <div class="terminal" aria-label="Terminal ilustrativo da mAInframe">
-          <div class="terminal__bar">
-            <span class="terminal__lights"><i></i><i></i><i></i></span>
-            <span class="terminal__name">mainframe@core:~</span>
+        <figure class="crt" aria-label="Demonstração: a IA da mAInframe analisando o contas a pagar de uma empresa">
+          <div class="crt__housing">
+            <div class="crt__screen">
+              <pre class="crt__text" id="crt" aria-hidden="true"></pre>
+            </div>
+            <div class="crt__base">
+              <span class="crt__brand">m<span>AI</span>nframe</span>
+              <span class="crt__led" aria-hidden="true"></span>
+            </div>
           </div>
-          <pre class="terminal__body" id="terminal" aria-live="off"></pre>
-        </div>
+          <figcaption class="visually-hidden">
+            A IA lê 1.248 notas fiscais, cruza com o extrato bancário e encontra 17 divergências.
+            Um trabalho de cerca de 40 horas por mês feito em 4 minutos.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- ============ STACK MARQUEE ============ -->
-    <div class="marquee" aria-label="Tecnologias que usamos">
-      <div class="marquee__track">
-        <span>Python</span><span>SQL</span><span>LLMs</span><span>RAG</span><span>Agentes</span><span>Automação</span><span>Machine Learning</span><span>Visão computacional</span><span>Engenharia de dados</span><span>APIs</span><span>Cloud</span>
-        <span aria-hidden="true">Python</span><span aria-hidden="true">SQL</span><span aria-hidden="true">LLMs</span><span aria-hidden="true">RAG</span><span aria-hidden="true">Agentes</span><span aria-hidden="true">Automação</span><span aria-hidden="true">Machine Learning</span><span aria-hidden="true">Visão computacional</span><span aria-hidden="true">Engenharia de dados</span><span aria-hidden="true">APIs</span><span aria-hidden="true">Cloud</span>
-      </div>
-    </div>
-
-    <!-- ============ SERVIÇOS ============ -->
-    <section class="section" id="servicos">
-      <div class="container">
-        <header class="section__head">
-          <p class="kicker">// 01 · serviços</p>
-          <h2>O que a mAInframe coloca para rodar</h2>
-          <p class="section__lead">Do diagnóstico ao sistema em produção. Começamos pelo problema do negócio e só depois escolhemos a tecnologia.</p>
-        </header>
-
-        <div class="services">
-          <article class="card service reveal">
-            <span class="service__num">01</span>
-            <h3>Agentes &amp; chatbots</h3>
-            <p>Assistentes que atendem clientes, respondem sobre seus documentos e executam tarefas no WhatsApp, site ou sistemas internos.</p>
-            <code>&gt; atendimento · suporte · vendas</code>
-          </article>
-          <article class="card service reveal">
-            <span class="service__num">02</span>
-            <h3>Automação de processos</h3>
-            <p>Robôs que leem documentos, preenchem planilhas, cruzam dados e tiram o trabalho repetitivo das mãos do seu time.</p>
-            <code>&gt; backoffice · financeiro · RH</code>
-          </article>
-          <article class="card service reveal">
-            <span class="service__num">03</span>
-            <h3>Dados &amp; analytics</h3>
-            <p>Pipelines, data lakes e painéis que juntam suas fontes num lugar só, com dados confiáveis para decidir e para treinar IA.</p>
-            <code>&gt; pipelines · BI · previsões</code>
-          </article>
-          <article class="card service reveal">
-            <span class="service__num">04</span>
-            <h3>Consultoria &amp; treinamento</h3>
-            <p>Mapeamos onde a IA gera mais retorno na sua empresa e capacitamos a equipe para usar as ferramentas no dia a dia.</p>
-            <code>&gt; diagnóstico · roadmap · workshops</code>
-          </article>
+    <!-- ============ DORES ============ -->
+    <section class="pains band band--paper" id="como-ajudo">
+      <div class="wrap pains__inner">
+        <div class="pains__intro">
+          <h2>Isso acontece na sua empresa?</h2>
+          <p>Marque o que for parecido com o seu dia a dia. Isso vai junto quando você pedir o diagnóstico.</p>
+          <p class="pains__count" id="pains-count" aria-live="polite"></p>
+          <a href="#contato" class="btn btn--ink" id="pains-cta">Quero resolver isso</a>
         </div>
+
+        <ul class="pains__list">
+          <li>
+            <label class="pain">
+              <input type="checkbox" value="Atendimento repetitivo no WhatsApp/e-mail" />
+              <span class="pain__box" aria-hidden="true"></span>
+              <span class="pain__text">
+                <b>O time responde as mesmas perguntas o dia todo.</b>
+                Um agente de IA atende no WhatsApp ou no site, a qualquer hora, e chama alguém quando o caso pede.
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="pain">
+              <input type="checkbox" value="Trabalho manual com planilhas e documentos" />
+              <span class="pain__box" aria-hidden="true"></span>
+              <span class="pain__text">
+                <b>Gente boa perde horas copiando dados entre planilhas e sistemas.</b>
+                Automações leem notas, contratos e e-mails e fazem o lançamento sozinhas.
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="pain">
+              <input type="checkbox" value="Dados espalhados e relatórios que não batem" />
+              <span class="pain__box" aria-hidden="true"></span>
+              <span class="pain__text">
+                <b>Cada área tem um número diferente para a mesma pergunta.</b>
+                Juntamos suas fontes num lugar só e entregamos painéis em que a diretoria confia.
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="pain">
+              <input type="checkbox" value="Informação presa em documentos e manuais" />
+              <span class="pain__box" aria-hidden="true"></span>
+              <span class="pain__text">
+                <b>Ninguém acha a informação certa nos documentos da empresa.</b>
+                Um assistente interno responde sobre contratos, manuais e políticas, citando a fonte.
+              </span>
+            </label>
+          </li>
+          <li>
+            <label class="pain">
+              <input type="checkbox" value="Quer usar IA mas não sabe por onde começar" />
+              <span class="pain__box" aria-hidden="true"></span>
+              <span class="pain__text">
+                <b>Todo mundo fala de IA, mas ninguém sabe por onde começar.</b>
+                Fazemos o diagnóstico, apontamos onde a IA dá retorno e treinamos sua equipe.
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PROJETOS (impressão) ============ -->
+    <section class="band band--desk" id="projetos">
+      <div class="wrap">
+        <div class="projects__head">
+          <div>
+            <h2>Projetos</h2>
+            <p>Cada projeto começa com um problema concreto e termina com um número que melhorou.</p>
+          </div>
+          <div class="filters" role="group" aria-label="Filtrar projetos por tipo">
+            <button class="filter" data-filter="all" aria-pressed="true">Todos</button>
+            <button class="filter" data-filter="agentes" aria-pressed="false">Agentes</button>
+            <button class="filter" data-filter="automacao" aria-pressed="false">Automação</button>
+            <button class="filter" data-filter="dados" aria-pressed="false">Dados</button>
+            <button class="filter" data-filter="visao" aria-pressed="false">Visão computacional</button>
+          </div>
+        </div>
+
+        <div class="printout">
+          <div class="printout__paper">
+            <header class="printout__header">
+              <span>MAINFRAME/IA  RELATÓRIO DE PROJETOS</span>
+              <span id="print-date"></span>
+            </header>
+            <div id="jobs"></div>
+            <footer class="printout__footer">
+              <span id="jobs-total"></span>
+              <span>FIM DO RELATÓRIO</span>
+            </footer>
+          </div>
+        </div>
+        <p class="projects__note" id="projects-note" hidden>Projetos ilustrativos. Os cases reais entram aqui em breve.</p>
       </div>
     </section>
 
     <!-- ============ PROCESSO ============ -->
-    <section class="section section--alt" id="processo">
-      <div class="container">
-        <header class="section__head">
-          <p class="kicker">// 02 · processo</p>
-          <h2>Como um projeto sai do papel</h2>
-        </header>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step__cmd">$ diagnose</span>
-            <h3>Diagnóstico</h3>
-            <p>Entendemos o processo, os dados disponíveis e qual resultado conta como sucesso.</p>
+    <section class="band band--paper" id="processo">
+      <div class="wrap">
+        <h2 class="process__title">Do primeiro papo ao sistema rodando</h2>
+        <ol class="process">
+          <li>
+            <h3>Diagnóstico gratuito</h3>
+            <p>Uma conversa de 30 minutos sobre o seu processo. Você sai com pelo menos uma ideia aplicável, contratando ou não.</p>
           </li>
-          <li class="step reveal">
-            <span class="step__cmd">$ prototype</span>
-            <h3>Protótipo</h3>
-            <p>Em poucas semanas você testa uma primeira versão com dados reais.</p>
+          <li>
+            <h3>Proposta</h3>
+            <p>Escopo, prazo e preço fechados por escrito, com o resultado que vamos medir.</p>
           </li>
-          <li class="step reveal">
-            <span class="step__cmd">$ deploy</span>
-            <h3>Produção</h3>
-            <p>Integramos aos seus sistemas, com segurança, monitoramento e documentação.</p>
+          <li>
+            <h3>Protótipo com seus dados</h3>
+            <p>Você testa uma primeira versão de verdade antes do investimento maior.</p>
           </li>
-          <li class="step reveal">
-            <span class="step__cmd">$ evolve</span>
-            <h3>Evolução</h3>
-            <p>Acompanhamos os números e melhoramos o sistema conforme o negócio muda.</p>
+          <li>
+            <h3>Produção e acompanhamento</h3>
+            <p>Integramos aos seus sistemas, treinamos o time e acompanhamos os números.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ============ PROJETOS ============ -->
-    <section class="section" id="projetos">
-      <div class="container">
-        <header class="section__head section__head--row">
-          <div>
-            <p class="kicker">// 03 · portfólio</p>
-            <h2>Projetos em execução</h2>
+    <!-- ============ BRUNO ============ -->
+    <section class="band band--dark" id="bruno">
+      <div class="wrap founder">
+        <div class="founder__photo">
+          <!-- Troque por assets/bruno.jpg quando tiver a foto -->
+          <img src="assets/bruno-placeholder.svg" alt="Bruno Favaro Simões, fundador da mAInframe" width="480" height="600" loading="lazy" />
+        </div>
+        <div class="founder__copy">
+          <h2>Quem faz: Bruno Favaro Simões</h2>
+          <p>
+            Sou o fundador da mAInframe e quem você vai encontrar em cada reunião. Venho da área de dados:
+            trabalho como analista de dados, tenho MBA em Engenharia de Dados pela FIAP e uso Python e SQL todos os dias.
+          </p>
+          <p>
+            Criei a mAInframe porque vi muita empresa pagar caro por IA que ficou só na apresentação.
+            Aqui o combinado é outro: um problema claro, um sistema que funciona e um número que melhora.
+          </p>
+          <p>
+            No Instagram eu mostro os bastidores dos projetos e explico IA sem complicação.
+          </p>
+          <div class="hero__ctas">
+            <a class="btn btn--amber" data-link="instagram" href="#" target="_blank" rel="noopener">Seguir <span data-text="instagram-handle">@mainframe.ia</span></a>
+            <a class="btn btn--line" data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
           </div>
-          <div class="filters" role="group" aria-label="Filtrar projetos">
-            <button class="filter is-active" data-filter="all" aria-pressed="true">Todos</button>
-            <button class="filter" data-filter="agentes" aria-pressed="false">Agentes</button>
-            <button class="filter" data-filter="automacao" aria-pressed="false">Automação</button>
-            <button class="filter" data-filter="dados" aria-pressed="false">Dados</button>
-            <button class="filter" data-filter="visao" aria-pressed="false">Visão</button>
-          </div>
-        </header>
-
-        <div class="projects" id="projects-grid"></div>
-        <p class="projects__note" id="projects-note" hidden>* Projetos ilustrativos. Os cases reais entram aqui em breve.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ FUNDADOR ============ -->
-    <section class="section section--alt" id="fundador">
-      <div class="container founder">
-        <div class="founder__photo reveal">
-          <div class="founder__frame">
-            <!-- Troque por assets/bruno.jpg quando tiver a foto -->
-            <img src="assets/bruno-placeholder.svg" alt="Bruno Favaro Simões, fundador da mAInframe" width="480" height="600" loading="lazy" />
-          </div>
-          <span class="founder__tag">user: bruno · role: founder</span>
-        </div>
-
-        <div class="founder__copy reveal">
-          <p class="kicker">// 04 · quem está por trás</p>
-          <h2>Prazer, eu sou o Bruno.</h2>
-          <p>
-            Sou o fundador e a cara da mAInframe. Venho do mundo dos dados: sou analista de dados,
-            tenho MBA em Engenharia de Dados pela FIAP e trabalho no dia a dia com Python e SQL.
-          </p>
-          <p>
-            Criei a mAInframe para levar inteligência artificial para empresas de um jeito prático:
-            sem promessas mágicas, com sistemas que funcionam, se pagam e que o seu time entende.
-            No Instagram eu mostro os bastidores, os projetos e o que está acontecendo no mundo da IA.
-          </p>
-
-          <blockquote class="quote">
-            “IA boa é aquela que some dentro do processo e deixa o resultado aparecer.”
-          </blockquote>
-
-          <ul class="founder__facts">
-            <li><span>formação</span>MBA em Engenharia de Dados · FIAP</li>
-            <li><span>stack</span>Python · SQL · dados · IA</li>
-            <li><span>missão</span>Colocar IA para trabalhar no seu negócio</li>
-          </ul>
-
-          <div class="hero__ctas">
-            <a class="btn btn--ghost" data-link="linkedin" href="#" target="_blank" rel="noopener">LinkedIn do Bruno</a>
-            <a class="btn btn--ghost" data-link="instagram" href="#" target="_blank" rel="noopener">Seguir no Instagram</a>
-          </div>
+    <!-- ============ DÚVIDAS ============ -->
+    <section class="band band--paper" id="duvidas">
+      <div class="wrap faq">
+        <h2>Dúvidas comuns</h2>
+        <div class="faq__list">
+          <details>
+            <summary>Quanto custa um projeto?</summary>
+            <p>Depende do tamanho do problema. Depois do diagnóstico gratuito você recebe uma proposta com preço fechado. Muitos projetos começam por um piloto menor para provar o retorno antes de crescer.</p>
+          </details>
+          <details>
+            <summary>Quanto tempo leva?</summary>
+            <p>Um protótipo costuma ficar pronto em poucas semanas. O prazo exato vai por escrito na proposta.</p>
+          </details>
+          <details>
+            <summary>Minha empresa é pequena. Faz sentido?</summary>
+            <p>Faz. Empresas menores costumam sentir o ganho mais rápido, porque cada hora devolvida ao time pesa mais. O diagnóstico serve justamente para ver se compensa.</p>
+          </details>
+          <details>
+            <summary>Preciso ter os dados organizados antes?</summary>
+            <p>Não. Organizar os dados faz parte do trabalho quando necessário. Planilhas, e-mails e PDFs já são um bom ponto de partida.</p>
+          </details>
+          <details>
+            <summary>E a segurança dos dados da minha empresa?</summary>
+            <p>Seguimos a LGPD, assinamos acordo de confidencialidade quando você quiser e usamos só o acesso necessário para cada projeto.</p>
+          </details>
+          <details>
+            <summary>Depois de pronto, quem cuida do sistema?</summary>
+            <p>Entregamos documentado e treinamos sua equipe. Se preferir, seguimos com um plano de acompanhamento mensal.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <!-- ============ INSTAGRAM ============ -->
-    <section class="section" id="instagram">
-      <div class="container">
-        <header class="section__head section__head--row">
-          <div>
-            <p class="kicker">// 05 · instagram</p>
-            <h2>Bastidores no <span class="hl" data-text="instagram-handle">@mainframe.ia</span></h2>
-            <p class="section__lead">Dicas de IA, projetos por dentro e o dia a dia da empresa.</p>
-          </div>
-          <a class="btn" data-link="instagram" href="#" target="_blank" rel="noopener">Seguir @mainframe.ia</a>
-        </header>
-
-        <div class="insta">
-          <a class="insta__post reveal" data-link="instagram" href="#" target="_blank" rel="noopener">
-            <span class="insta__type">REELS</span>
-            <span class="insta__big">3 jeitos de usar IA<br>na sua empresa hoje</span>
-          </a>
-          <a class="insta__post insta__post--amber reveal" data-link="instagram" href="#" target="_blank" rel="noopener">
-            <span class="insta__type">CARROSSEL</span>
-            <span class="insta__big">O que é RAG,<br>sem complicação</span>
-          </a>
-          <a class="insta__post reveal" data-link="instagram" href="#" target="_blank" rel="noopener">
-            <span class="insta__type">BASTIDORES</span>
-            <span class="insta__big">Um dia construindo<br>um agente de IA</span>
-          </a>
-          <a class="insta__post insta__post--amber reveal" data-link="instagram" href="#" target="_blank" rel="noopener">
-            <span class="insta__type">CASE</span>
-            <span class="insta__big">40 horas por mês<br>de volta ao time</span>
-          </a>
+    <section class="band band--desk insta-band" id="instagram">
+      <div class="wrap insta">
+        <div class="insta__copy">
+          <h2>Acompanhe no Instagram</h2>
+          <p>Dicas de IA para empresas, bastidores dos projetos e o que está mudando no mercado, toda semana.</p>
+          <a class="btn btn--ink" data-link="instagram" href="#" target="_blank" rel="noopener">Abrir <span data-text="instagram-handle">@mainframe.ia</span></a>
         </div>
+        <ul class="insta__grid" aria-label="Temas que aparecem no Instagram">
+          <li><a data-link="instagram" href="#" target="_blank" rel="noopener"><span>Reels</span>3 jeitos de usar IA na sua empresa amanhã</a></li>
+          <li><a data-link="instagram" href="#" target="_blank" rel="noopener"><span>Carrossel</span>O que é RAG, explicado sem jargão</a></li>
+          <li><a data-link="instagram" href="#" target="_blank" rel="noopener"><span>Bastidores</span>Um dia construindo um agente de atendimento</a></li>
+        </ul>
       </div>
     </section>
 
     <!-- ============ CONTATO ============ -->
-    <section class="section section--alt" id="contato">
-      <div class="container contact">
+    <section class="band band--dark" id="contato">
+      <div class="wrap contact">
         <div class="contact__copy">
-          <p class="kicker">// 06 · contato</p>
-          <h2>Bora colocar IA para rodar na sua empresa?</h2>
-          <p class="section__lead">Conte rapidamente o desafio. A gente responde com os próximos passos, sem compromisso.</p>
-
-          <ul class="contact__channels">
-            <li><a data-link="instagram" href="#" target="_blank" rel="noopener"><span>instagram</span><b data-text="instagram-handle">@mainframe.ia</b></a></li>
-            <li><a data-link="email" href="#"><span>e-mail</span><b data-text="email">contato@mainframe.ia</b></a></li>
-            <li data-show="whatsapp" hidden><a data-link="whatsapp" href="#" target="_blank" rel="noopener"><span>whatsapp</span><b>Chamar no WhatsApp</b></a></li>
+          <h2>Agende seu diagnóstico gratuito</h2>
+          <p>Conte o desafio em poucas linhas. Respondo em até 1 dia útil para marcar uma conversa de 30 minutos.</p>
+          <ul class="contact__alt">
+            <li>Prefere direto? <a data-link="instagram" href="#" target="_blank" rel="noopener">Mande uma DM no <span data-text="instagram-handle">@mainframe.ia</span></a></li>
+            <li><a data-link="email" href="#"><span data-text="email">contato@mainframe.ia</span></a></li>
+            <li data-show="whatsapp" hidden><a data-link="whatsapp" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a></li>
           </ul>
         </div>
 
-        <form class="form card" id="contact-form" novalidate>
-          <div class="form__bar"><span>&gt; novo_projeto.sh</span></div>
-          <label>
-            <span>Nome</span>
-            <input name="nome" type="text" autocomplete="name" required />
+        <form class="form" id="contact-form" novalidate>
+          <div class="form__row">
+            <label>Seu nome
+              <input name="nome" type="text" autocomplete="name" required />
+            </label>
+            <label>Empresa
+              <input name="empresa" type="text" autocomplete="organization" required />
+            </label>
+          </div>
+          <div class="form__row">
+            <label>E-mail ou WhatsApp
+              <input name="contato" type="text" autocomplete="email" required />
+            </label>
+            <label>Tamanho da empresa
+              <select name="porte">
+                <option value="">Selecione</option>
+                <option>Até 10 pessoas</option>
+                <option>11 a 50 pessoas</option>
+                <option>51 a 200 pessoas</option>
+                <option>Mais de 200 pessoas</option>
+              </select>
+            </label>
+          </div>
+          <label>O que você quer resolver?
+            <textarea name="mensagem" rows="5" required placeholder="Ex.: nosso time gasta 2 dias por mês conciliando notas fiscais."></textarea>
           </label>
-          <label>
-            <span>E-mail</span>
-            <input name="email" type="email" autocomplete="email" required />
-          </label>
-          <label>
-            <span>Empresa</span>
-            <input name="empresa" type="text" autocomplete="organization" />
-          </label>
-          <label>
-            <span>Qual é o desafio?</span>
-            <textarea name="mensagem" rows="4" required></textarea>
-          </label>
-          <button class="btn btn--full" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+          <p class="form__picked" id="form-picked" hidden></p>
+          <button class="btn btn--amber btn--full" type="submit" id="form-submit">Enviar pedido de diagnóstico</button>
           <p class="form__status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -292,12 +327,17 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <a href="#top" class="logo logo--small"><span class="logo__bracket">[</span>m<span class="logo__ai">AI</span>nframe<span class="logo__bracket">]</span></a>
-      <p>© <span id="year">2026</span> mAInframe · Inteligência artificial aplicada</p>
+    <div class="wrap footer__inner">
+      <a href="#topo" class="logo logo--sm">m<span class="logo__ai">AI</span>nframe</a>
+      <p>Inteligência artificial aplicada a empresas. © <span id="year">2026</span></p>
       <a data-link="instagram" href="#" target="_blank" rel="noopener" data-text="instagram-handle">@mainframe.ia</a>
     </div>
   </footer>
+
+  <!-- Barra fixa no celular -->
+  <div class="mobile-cta" id="mobile-cta">
+    <a href="#contato" class="btn btn--amber btn--full">Agendar diagnóstico gratuito</a>
+  </div>
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
